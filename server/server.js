@@ -30,7 +30,10 @@ app.use(
   })
 );
 
-app.use('/', authRouter);
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use('/auth', authRouter);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
