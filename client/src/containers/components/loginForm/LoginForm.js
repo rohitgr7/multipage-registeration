@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 
-import loginFields from './loginFields';
+import { loginFields } from './loginFields';
 import FieldInputs from './../FieldInputs';
 
 class LoginForm extends Component {
@@ -19,6 +19,19 @@ class LoginForm extends Component {
   }
 }
 
+const validate = values => {
+  const errors = {};
+  const error = 'This field is required';
+
+  errors.email = values.email ? '' : error;
+  errors.password = values.password ? '' : error;
+
+  console.log(errors);
+
+  return errors;
+};
+
 export default reduxForm({
-  form: 'loginForm'
+  form: 'loginForm',
+  validate
 })(LoginForm);

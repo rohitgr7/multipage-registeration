@@ -1,3 +1,9 @@
 import React from 'react';
 
-export const RegisterationPage = () => <div>RegisterationPage</div>;
+import RegisterationForm from './../components/registerationForm';
+
+export const RegisterationPage = () => (
+  <div>
+    <RegisterationForm submitForm={values => console.log(values)} />
+  </div>
+);

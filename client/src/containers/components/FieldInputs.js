@@ -9,17 +9,31 @@ class FieldInputs extends Component {
   renderRadioFields = (name, config) => {
     return config.map(({ label, id }, idx) => (
       <div>
-        <Field name={name} component={RadioInput} id={id} idx={idx} />
-        <label htmlFor={id}>{label}</label>
+        <label htmlFor={id}>
+          <Field
+            name={name}
+            type="radio"
+            component={RadioInput}
+            id={id}
+            idx={idx}
+            value={id}
+          />
+          {label}
+        </label>
       </div>
     ));
   };
 
   renderFields = fields => {
-    return fields.map(({ inputType, name, config }) => {
+    return fields.map(({ inputType, name, label, config }) => {
       switch (inputType) {
         case 'radio':
-          return <div>{this.renderRadioFields(name, config)}</div>;
+          return (
+            <div>
+              <label>{label}</label>
+              {this.renderRadioFields(name, config)}
+            </div>
+          );
         case 'textarea':
           return <Field name={name} component={TextArea} config={config} />;
         default:

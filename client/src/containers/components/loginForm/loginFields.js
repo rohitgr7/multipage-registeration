@@ -11,8 +11,8 @@ const radioInputs = [
   { label: 'Female', id: 'female' }
 ];
 
-module.exports = [
+export const loginFields = [
   { inputType: 'email', name: 'email', config: emailConfig },
   { inputType: 'password', name: 'password', config: passwordConfig },
-  { inputType: 'radio', name: 'sex', config: radioInputs }
+  { inputType: 'radio', name: 'sex', label: 'Sex', config: radioInputs }
 ];

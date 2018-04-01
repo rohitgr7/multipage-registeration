@@ -1,7 +1,7 @@
 import React from 'react';
 
-const RadioInput = ({ input, id, idx }) => (
-  <input {...input} type="radio" id={id} value={id} />
-);
+const RadioInput = ({ input, id, idx }) => {
+  return <input {...input} type="radio" id={id} />;
+};
 
 export default RadioInput;
