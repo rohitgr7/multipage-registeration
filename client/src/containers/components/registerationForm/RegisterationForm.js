@@ -26,6 +26,8 @@ class RegisterationForm extends Component {
     const { page } = this.state;
     return (
       <div>
+        <br />
+        <br />
         {page === 1 && <FirstPage submitForm={this.nextPage} />}
         {page === 2 && (
           <SecondPage

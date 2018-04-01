@@ -8,16 +8,16 @@ import TextArea from './TextArea';
 class FieldInputs extends Component {
   renderRadioFields = (name, config) => {
     return config.map(({ label, id }, idx) => (
-      <div>
-        <label htmlFor={id}>
-          <Field
-            name={name}
-            type="radio"
-            component={RadioInput}
-            id={id}
-            idx={idx}
-            value={id}
-          />
+      <div className="form-check">
+        <Field
+          name={name}
+          type="radio"
+          component={RadioInput}
+          id={id}
+          idx={idx}
+          value={id}
+        />
+        <label className="form-check-label" htmlFor={id}>
           {label}
         </label>
       </div>
@@ -25,14 +25,20 @@ class FieldInputs extends Component {
   };
 
   renderFields = fields => {
-    return fields.map(({ inputType, name, label, config }) => {
+    return fields.map(({ inputType, name, legend, config }) => {
       switch (inputType) {
         case 'radio':
           return (
-            <div>
-              <label>{label}</label>
-              {this.renderRadioFields(name, config)}
-            </div>
+            <fieldset className="form-group">
+              <div className="row">
+                <legend className="col-form-label col-sm-2 pt-0">
+                  {legend}
+                </legend>
+                <div class="col-sm-10">
+                  {this.renderRadioFields(name, config)}
+                </div>
+              </div>
+            </fieldset>
           );
         case 'textarea':
           return <Field name={name} component={TextArea} config={config} />;

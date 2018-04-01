@@ -1,5 +1,13 @@
-export * from './DashboardPage';
-export * from './LandingPage';
-export * from './LoginPage';
-export * from './NotFoundPage';
-export * from './RegisterationPage';
+import DashboardPage from './DashboardPage';
+import LandingPage from './LandingPage';
+import LoginPage from './LoginPage';
+import NotFoundPage from './NotFoundPage';
+import RegisterationPage from './RegisterationPage';
+
+export {
+  DashboardPage,
+  LandingPage,
+  LoginPage,
+  NotFoundPage,
+  RegisterationPage
+};

@@ -17,7 +17,7 @@ const localLogin = new localStrategy(
         user
           .checkPassword(password)
           .then(() => {
-            done(null, false);
+            done(null, user);
           })
           .catch(e => {
             done(null, false);

@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
+import { loginUser } from './../../actions';
 import LoginForm from './../components/loginForm';
 
-export const LoginPage = () => (
-  <div>
-    <LoginForm submitForm={values => console.log(values)} />
-  </div>
-);
+class LoginPage extends Component {
+  render() {
+    return (
+      <div>
+        <LoginForm submitForm={values => this.props.loginUser(values)} />
+      </div>
+    );
+  }
+}
+
+export default connect(null, { loginUser })(LoginPage);

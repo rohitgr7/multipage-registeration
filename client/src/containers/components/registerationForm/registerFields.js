@@ -66,16 +66,16 @@ export const secondPageFields = [
   {
     inputType: 'radio',
     name: 'ethnicity',
-    label: 'Ethnicity',
+    legend: 'Ethnicity',
     config: ethnicityInputs
   },
-  { inputType: 'radio', name: 'race', label: 'Race', config: raceInputs },
-  { inputType: 'radio', name: 'sex', label: 'Sex', config: sexInputs },
+  { inputType: 'radio', name: 'race', legend: 'Race', config: raceInputs },
+  { inputType: 'radio', name: 'sex', legend: 'Sex', config: sexInputs },
   { inputType: 'number', name: 'height', config: heightConfig },
   { inputType: 'number', name: 'weight', config: weightConfig }
 ];
 
 export const thirdPageFields = [
-  { inputType: 'email', name: 'email', config: emailConfig },
+  { inputType: 'text', name: 'email', config: emailConfig },
   { inputType: 'password', name: 'password', config: passwordConfig }
 ];

@@ -10,23 +10,19 @@ const {
 const User = require('mongoose').model('users');
 
 router.post('/register', localRegisteration, (req, res) => {
-  res.send(req.user);
+  res.send({ success: 'user created' });
 });
 
 router.post('/login', localLogin, (req, res) => {
-  if (!req.user) {
-    res.send(user);
-  } else {
-    res.status(401).send({ error: 'Invalid email or password!' });
-  }
+  res.send(req.user);
 });
 
-router.get('/logout', (req, res) => {
+router.get('/logout', ensureAuthentication, (req, res) => {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/user', ensureAuthentication, (req, res) => {
+router.get('/user', (req, res) => {
   res.send(req.user);
 });
 

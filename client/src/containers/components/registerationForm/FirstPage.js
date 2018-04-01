@@ -11,7 +11,9 @@ const FirstPage = props => {
     <div>
       <form onSubmit={handleSubmit(submitForm)}>
         <FieldInputs fields={firstPageFields} />
-        <button type="submit">Proceed</button>
+        <button className="btn btn-primary" type="submit">
+          Proceed
+        </button>
       </form>
     </div>
   );

@@ -1,0 +1,25 @@
+[33mcommit 8772f84444187bf92d60099c38f38e63532f1c5d[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Rohit Gupta <30778939+rohitgr7@users.noreply.github.com>
+Date:   Sun Apr 1 19:27:02 2018 +0530
+
+    Added registeration form
+
+ client/src/containers/components/FieldInputs.js    | 22 [32m++++[m[31m--[m
+ client/src/containers/components/RadioInput.js     |  6 [32m+[m[31m-[m
+ client/src/containers/components/TextArea.js       |  2 [32m+[m[31m-[m
+ .../containers/components/loginForm/LoginForm.js   | 17 [32m++++[m[31m-[m
+ .../containers/components/loginForm/loginFields.js |  4 [32m+[m[31m-[m
+ .../components/registerationForm.js/FirstPage.js   |  0
+ .../registerationForm.js/RegisterationForm.js      |  0
+ .../components/registerationForm.js/SecondPage.js  |  0
+ .../components/registerationForm.js/ThirdPage.js   |  0
+ .../components/registerationForm.js/index.js       |  3 [31m-[m
+ .../registerationForm.js/registerInputs.js         | 64 [31m-----------------[m
+ .../components/registerationForm/FirstPage.js      | 35 [32m++++++++++[m
+ .../registerationForm/RegisterationForm.js         | 44 [32m++++++++++++[m
+ .../components/registerationForm/SecondPage.js     | 43 [32m++++++++++++[m
+ .../components/registerationForm/ThirdPage.js      | 38 [32m++++++++++[m
+ .../components/registerationForm/index.js          |  3 [32m+[m
+ .../components/registerationForm/registerFields.js | 81 [32m++++++++++++++++++++++[m
+ client/src/containers/pages/RegisterationPage.js   |  8 [32m++[m[31m-[m
+ 18 files changed, 290 insertions(+), 80 deletions(-)

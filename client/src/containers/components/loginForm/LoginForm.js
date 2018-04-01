@@ -10,9 +10,13 @@ class LoginForm extends Component {
 
     return (
       <div>
+        <br />
+        <br />
         <form onSubmit={handleSubmit(submitForm)}>
           <FieldInputs fields={loginFields} />
-          <button type="submit">Login</button>
+          <button className="btn btn-primary" type="submit">
+            Login
+          </button>
         </form>
       </div>
     );
@@ -26,7 +30,9 @@ const validate = values => {
   errors.email = values.email ? '' : error;
   errors.password = values.password ? '' : error;
 
-  console.log(errors);
+  if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'Invalid email';
+  }
 
   return errors;
 };

@@ -1,9 +1,13 @@
 import React from 'react';
 
 const TextArea = ({ config: { label, id }, input }) => (
-  <div>
-    <label htmlFor={id}>{label}</label>
-    <textarea {...input} id={id} />
+  <div className="form-group row">
+    <label className="col-sm-2 col-form-label" htmlFor={id}>
+      {label}
+    </label>
+    <div className="col-sm-10">
+      <textarea {...input} className="form-control" rows="7" id={id} />
+    </div>
   </div>
 );
 
