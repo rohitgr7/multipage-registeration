@@ -26,8 +26,11 @@ class RegisterationForm extends Component {
     const { page } = this.state;
     return (
       <div>
-        <br />
-        <br />
+        <div className="card text-center text-white bg-dark mb-3">
+          <div className="card-body">
+            <h5 className="card-title">STEP {page}/3</h5>
+          </div>
+        </div>
         {page === 1 && <FirstPage submitForm={this.nextPage} />}
         {page === 2 && (
           <SecondPage

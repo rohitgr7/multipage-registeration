@@ -9,18 +9,20 @@ const ThirdPage = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(submitForm)}>
+      <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
         <FieldInputs fields={thirdPageFields} />
-        <button
-          className="btn btn-primary"
-          type="button"
-          onClick={previousPage}
-        >
-          Previous
-        </button>
-        <button className="btn btn-danger ml-2" type="submit">
-          Register
-        </button>
+        <div className="text-center">
+          <button
+            className="btn btn-primary"
+            type="button"
+            onClick={previousPage}
+          >
+            Previous
+          </button>
+          <button className="btn btn-danger ml-2" type="submit">
+            Register
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -9,11 +9,13 @@ const FirstPage = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(submitForm)}>
+      <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
         <FieldInputs fields={firstPageFields} />
-        <button className="btn btn-primary" type="submit">
-          Proceed
-        </button>
+        <div className="text-center">
+          <button className="btn btn-primary" type="submit">
+            Proceed
+          </button>
+        </div>
       </form>
     </div>
   );

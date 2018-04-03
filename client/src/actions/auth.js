@@ -6,7 +6,8 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAILED,
   FETCH_USER_SUCCESS,
-  FETCH_USER_FAILED
+  FETCH_USER_FAILED,
+  CLEAN_ERROR_MESSAGES
 } from './types';
 
 const loginSuccess = () => ({
@@ -19,8 +20,7 @@ const loginFailed = () => ({
 });
 
 const registerSuccess = () => ({
-  type: REGISTER_SUCCESS,
-  payload: 'Registeration successful. Please login.'
+  type: REGISTER_SUCCESS
 });
 
 const registerFailed = () => ({
@@ -37,19 +37,25 @@ export const loginUser = userDetails => async dispatch => {
   }
 };
 
-export const registerUser = userDetails => async dispatch => {
-  try {
-    await axios.post('/auth/login', userDetails);
-    dispatch(registerSuccess());
-  } catch (e) {
-    dispatch(registerFailed());
-  }
+export const registerUser = userDetails => dispatch => {
+  return new Promise(async (resolve, reject) => {
+    console.log(userDetails);
+    try {
+      console.log('trying');
+      await axios.post('/auth/register', userDetails);
+      dispatch(registerSuccess());
+      resolve();
+    } catch (e) {
+      dispatch(registerFailed());
+      reject();
+    }
+  });
 };
 
 export const fetchUser = () => async dispatch => {
   try {
     const user = await axios.get('/auth/user');
-    if (user) {
+    if (user.data) {
       dispatch({ type: FETCH_USER_SUCCESS });
     } else {
       dispatch({ type: FETCH_USER_FAILED });
@@ -57,4 +63,8 @@ export const fetchUser = () => async dispatch => {
   } catch (e) {
     dispatch({ type: FETCH_USER_FAILED });
   }
+};
+
+export const cleanErrorMessages = () => dispatch => {
+  dispatch({ type: CLEAN_ERROR_MESSAGES });
 };

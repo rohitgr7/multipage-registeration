@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 
 class Header extends Component {
   renderContent = () => {
-    const { auth } = this.props.user;
-    return auth ? (
+    const { user } = this.props.auth;
+    return user ? (
       <li key="3" className="nav-item active">
-        <a className="nav-link" href="#">
+        <a className="nav-link" href="/auth/logout">
           Logout
         </a>
       </li>
@@ -30,7 +30,7 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link to={this.props.auth ? '/surveys' : '/'} className="navbar-brand">
+        <Link to="/" className="navbar-brand">
           Dummy App
         </Link>
         <button
@@ -52,6 +52,6 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({ user });
+const mapStateToProps = ({ auth }) => ({ auth });
 
 export default connect(mapStateToProps)(Header);

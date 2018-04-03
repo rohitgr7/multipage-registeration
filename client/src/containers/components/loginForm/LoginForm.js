@@ -12,11 +12,13 @@ class LoginForm extends Component {
       <div>
         <br />
         <br />
-        <form onSubmit={handleSubmit(submitForm)}>
+        <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
           <FieldInputs fields={loginFields} />
-          <button className="btn btn-primary" type="submit">
-            Login
-          </button>
+          <div className="text-center">
+            <button className="btn btn-primary" type="submit">
+              Login
+            </button>
+          </div>
         </form>
       </div>
     );

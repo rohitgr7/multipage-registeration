@@ -9,18 +9,20 @@ const SecondPage = props => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(submitForm)}>
-        <FieldInputs fields={secondPageFields} />
-        <button
-          className="btn btn-success"
-          type="button"
-          onClick={previousPage}
-        >
-          Previous
-        </button>
-        <button className="btn btn-primary ml-2" type="submit">
-          Proceed
-        </button>
+      <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
+        <FieldInputs fields={secondPageFields} hr={true} />
+        <div className="text-center">
+          <button
+            className="btn btn-success"
+            type="button"
+            onClick={previousPage}
+          >
+            Previous
+          </button>
+          <button className="btn btn-primary ml-2" type="submit">
+            Proceed
+          </button>
+        </div>
       </form>
     </div>
   );
