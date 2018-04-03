@@ -4,29 +4,25 @@ import { reduxForm } from 'redux-form';
 import { secondPageFields } from './registerFields';
 import FieldInputs from './../FieldInputs';
 
-const SecondPage = props => {
-  const { handleSubmit, submitForm, previousPage } = props;
-
-  return (
-    <div>
-      <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
-        <FieldInputs fields={secondPageFields} hr={true} />
-        <div className="text-center">
-          <button
-            className="btn btn-success"
-            type="button"
-            onClick={previousPage}
-          >
-            Previous
-          </button>
-          <button className="btn btn-primary ml-2" type="submit">
-            Proceed
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
+const SecondPage = ({ handleSubmit, submitForm, previousPage }) => (
+  <div>
+    <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
+      <FieldInputs fields={secondPageFields} hr={true} />
+      <div className="text-center">
+        <button
+          className="btn btn-success"
+          type="button"
+          onClick={previousPage}
+        >
+          Previous
+        </button>
+        <button className="btn btn-primary ml-2" type="submit">
+          Proceed
+        </button>
+      </div>
+    </form>
+  </div>
+);
 
 const validate = values => {
   const errors = {};

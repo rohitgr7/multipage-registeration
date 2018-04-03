@@ -4,29 +4,25 @@ import { reduxForm } from 'redux-form';
 import { thirdPageFields } from './registerFields';
 import FieldInputs from './../FieldInputs';
 
-const ThirdPage = props => {
-  const { handleSubmit, submitForm, previousPage } = props;
-
-  return (
-    <div>
-      <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
-        <FieldInputs fields={thirdPageFields} />
-        <div className="text-center">
-          <button
-            className="btn btn-primary"
-            type="button"
-            onClick={previousPage}
-          >
-            Previous
-          </button>
-          <button className="btn btn-danger ml-2" type="submit">
-            Register
-          </button>
-        </div>
-      </form>
-    </div>
-  );
-};
+const ThirdPage = ({ handleSubmit, submitForm, previousPage }) => (
+  <div>
+    <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
+      <FieldInputs fields={thirdPageFields} />
+      <div className="text-center">
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={previousPage}
+        >
+          Previous
+        </button>
+        <button className="btn btn-danger ml-2" type="submit">
+          Register
+        </button>
+      </div>
+    </form>
+  </div>
+);
 
 const validate = values => {
   const errors = {};

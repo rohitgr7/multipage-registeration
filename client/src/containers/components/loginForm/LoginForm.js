@@ -4,26 +4,20 @@ import { reduxForm } from 'redux-form';
 import { loginFields } from './loginFields';
 import FieldInputs from './../FieldInputs';
 
-class LoginForm extends Component {
-  render() {
-    const { handleSubmit, submitForm } = this.props;
-
-    return (
-      <div>
-        <br />
-        <br />
-        <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
-          <FieldInputs fields={loginFields} />
-          <div className="text-center">
-            <button className="btn btn-primary" type="submit">
-              Login
-            </button>
-          </div>
-        </form>
+const LoginForm = ({ handleSubmit, submitForm }) => (
+  <div>
+    <br />
+    <br />
+    <form className="needs-validation" onSubmit={handleSubmit(submitForm)}>
+      <FieldInputs fields={loginFields} />
+      <div className="text-center">
+        <button className="btn btn-primary" type="submit">
+          Login
+        </button>
       </div>
-    );
-  }
-}
+    </form>
+  </div>
+);
 
 const validate = values => {
   const errors = {};
