@@ -3,7 +3,8 @@ const bcrypt = require('bcryptjs');
 
 const { Schema } = mongoose;
 
-const userSchema = Schema({
+// User-Schema initialized
+const userSchema = new Schema({
   email: {
     type: String,
     required: true,
@@ -55,6 +56,7 @@ const userSchema = Schema({
   }
 });
 
+// Method to check hashed password with given password
 userSchema.methods.checkPassword = function(password) {
   var user = this;
 
@@ -69,6 +71,7 @@ userSchema.methods.checkPassword = function(password) {
   });
 };
 
+// Hashing for password before saving it in the database
 userSchema.pre('save', function(next) {
   var user = this;
 

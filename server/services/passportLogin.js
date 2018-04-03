@@ -1,10 +1,13 @@
 const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 
+// User instance from database
 const User = require('mongoose').model('users');
 
+// Login options
 const loginOptions = { usernameField: 'email', passwordField: 'password' };
 
+// Local login strategy defined
 const localLogin = new localStrategy(
   loginOptions,
   async (email, password, done) => {
@@ -29,6 +32,7 @@ const localLogin = new localStrategy(
   }
 );
 
+// Serialize and Deserialize user to maintain sessions
 passport.serializeUser((user, done) => {
   done(null, user.id);
 });

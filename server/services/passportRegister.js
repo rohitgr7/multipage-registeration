@@ -2,13 +2,16 @@ const passport = require('passport');
 const localStrategy = require('passport-local').Strategy;
 const _ = require('lodash');
 
+// User instance from database
 const User = require('mongoose').model('users');
 
+// Registeration options
 const registerOptions = {
   usernameField: 'email',
   passReqToCallback: true
 };
 
+// Local registeration strategy defined
 const localRegisteration = new localStrategy(
   registerOptions,
   async (req, email, password, done) => {
