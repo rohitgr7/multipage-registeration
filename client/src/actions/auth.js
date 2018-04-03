@@ -39,9 +39,7 @@ export const loginUser = userDetails => async dispatch => {
 
 export const registerUser = userDetails => dispatch => {
   return new Promise(async (resolve, reject) => {
-    console.log(userDetails);
     try {
-      console.log('trying');
       await axios.post('/auth/register', userDetails);
       dispatch(registerSuccess());
       resolve();

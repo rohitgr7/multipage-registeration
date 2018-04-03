@@ -12,14 +12,16 @@ const RenderError = ({ meta: { touched, error } }) => (
 class FieldInputs extends Component {
   renderRadioFields = (name, config) => {
     return config.map(({ label, id }) => (
-      <Field
-        name={name}
-        type="radio"
-        component={RadioInput}
-        value={id}
-        id={id}
-        label={label}
-      />
+      <div key={id}>
+        <Field
+          name={name}
+          type="radio"
+          component={RadioInput}
+          value={id}
+          id={id}
+          label={label}
+        />
+      </div>
     ));
   };
 
@@ -28,14 +30,14 @@ class FieldInputs extends Component {
       switch (inputType) {
         case 'radio':
           return (
-            <div>
+            <div key={name}>
               {hr && idx !== 0 && <hr />}
               <fieldset className="form-group">
                 <div className="row">
                   <legend className="col-form-label col-sm-2 pt-0">
                     {legend}
                   </legend>
-                  <div class="col-sm-10">
+                  <div className="col-sm-10">
                     {this.renderRadioFields(name, config)}
                     <Field name={name} component={RenderError} />
                   </div>
@@ -45,14 +47,14 @@ class FieldInputs extends Component {
           );
         case 'textarea':
           return (
-            <div>
+            <div key={name}>
               {hr && idx !== 0 && <hr />}
               <Field name={name} component={TextArea} config={config} />
             </div>
           );
         default:
           return (
-            <div>
+            <div key={name}>
               {hr && idx !== 0 && <hr />}
               <Field
                 name={name}

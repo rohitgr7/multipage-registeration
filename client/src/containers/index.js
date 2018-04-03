@@ -15,7 +15,6 @@ import {
 
 class App extends Component {
   componentDidMount() {
-    console.log('fetching user');
     this.props.fetchUser();
   }
 
