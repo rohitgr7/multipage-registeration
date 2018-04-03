@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
-
+const _ = require('lodash');
 const { Schema } = mongoose;
 
 // User-Schema initialized
@@ -55,6 +55,14 @@ const userSchema = new Schema({
     required: true
   }
 });
+
+// Method to send only particular details to the client side
+userSchema.methods.toJSON = function() {
+  var user = this;
+  var userObject = user.toObject();
+
+  return _.pick(userObject, ['name', 'email']);
+};
 
 // Method to check hashed password with given password
 userSchema.methods.checkPassword = function(password) {

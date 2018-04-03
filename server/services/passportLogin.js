@@ -12,6 +12,10 @@ const localLogin = new localStrategy(
   loginOptions,
   async (email, password, done) => {
     try {
+      if (!email || !password) {
+        done(null, false);
+      }
+
       const user = await User.findOne({ email });
 
       if (!user) {

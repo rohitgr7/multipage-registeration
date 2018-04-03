@@ -16,7 +16,12 @@ const localRegisteration = new localStrategy(
   registerOptions,
   async (req, email, password, done) => {
     try {
+      if (!email || !password) {
+        done(null, false);
+      }
+
       const user = await User.findOne({ email });
+
       if (user) {
         done(null, false);
       } else {
